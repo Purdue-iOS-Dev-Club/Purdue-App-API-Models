@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GeneralHelpers {
+public class GeneralHelpers {
     /* Client Side */
     class func convertServerDate(serverReturnedDate: Double) -> Date {
         return Date(timeIntervalSinceReferenceDate: serverReturnedDate)

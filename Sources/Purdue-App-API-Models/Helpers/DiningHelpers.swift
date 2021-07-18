@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DiningHelpers {
+public class DiningHelpers {
     /* Server Side */
     class var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()

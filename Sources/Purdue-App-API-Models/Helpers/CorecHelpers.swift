@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CorecHelpers {
+public class CorecHelpers {
     class var ISO1806DateFormatter: ISO8601DateFormatter {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [ .withInternetDateTime, .withFractionalSeconds ]

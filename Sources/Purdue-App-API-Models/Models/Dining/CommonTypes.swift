@@ -15,7 +15,7 @@ enum MealType: String, Codable {
     case Dinner
 }
 
-enum LocationName: String, Codable {
+public enum LocationName: String, Codable {
     case OneBowl = "1Bowl"
     case AllAmericanDiningRoom = "All American Dining Room"
     case Earhart

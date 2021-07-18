@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DiningCourt: Codable {
+public struct DiningCourt: Codable {
 
     let Location:LocationName
     let Date:String
@@ -37,7 +37,7 @@ struct Item: Codable {
     
 }
 
-struct ItemDetail: Codable {
+public struct ItemDetail: Codable {
     
     let ID:String
     let Name: String
