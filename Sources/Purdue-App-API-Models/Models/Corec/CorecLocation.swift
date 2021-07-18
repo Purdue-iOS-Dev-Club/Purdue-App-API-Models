@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CorecLocation: Codable {
+public struct CorecLocation: Codable, Hashable {
     public let LocationId: Int?
     public let LocationName: String?
     public let TotalCapacity: Int?
