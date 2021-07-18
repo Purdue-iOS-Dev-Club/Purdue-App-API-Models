@@ -4,4 +4,6 @@ This package contains API models for the Purdue App developed by the iOS Dev Clu
 
 Feel free to use these Swift Codable models in your app to interact with Purdue's APIs!
 
+Happy developing!
+
 
