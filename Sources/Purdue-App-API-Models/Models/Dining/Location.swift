@@ -7,24 +7,24 @@
 
 import Foundation
 
-struct LocationResponse: Codable {
-    let Location: [Location?]?
+public struct LocationResponse: Codable {
+    public let Location: [Location?]?
 }
 
-struct Location: Codable {
-    let Name: LocationName?
-    let Address: Address?
-    let PhoneNumber: String?
-    let Latitude: Float?
-    let Longitude: Float?
-    let ImageUrls: [URL?]?
-    let LogoUrl: URL?
-    let UpcomingMeals: [UpcomingMeal?]?
-    let NormalHours: [NormalHour?]?
-    let LocationType: LocationType?
-    let Url: URL?
+public struct Location: Codable {
+    public let Name: LocationName?
+    public let Address: Address?
+    public let PhoneNumber: String?
+    public let Latitude: Float?
+    public let Longitude: Float?
+    public let ImageUrls: [URL?]?
+    public let LogoUrl: URL?
+    public let UpcomingMeals: [UpcomingMeal?]?
+    public let NormalHours: [NormalHour?]?
+    public let LocationType: LocationType?
+    public let Url: URL?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case Name
         case Address
         case PhoneNumber
@@ -39,33 +39,33 @@ struct Location: Codable {
     }
 }
 
-struct Address: Codable {
-    let Street: String?
-    let City: String?
-    let State: String?
-    let ZipCode: String?
+public struct Address: Codable {
+    public let Street: String?
+    public let City: String?
+    public let State: String?
+    public let ZipCode: String?
 }
 
-struct UpcomingMeal: Codable {
-    let UpComingMealType: MealType?
-    let StartTime: Date?
-    let EndTime: Date?
+public struct UpcomingMeal: Codable {
+    public let UpComingMealType: MealType?
+    public let StartTime: Date?
+    public let EndTime: Date?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case UpComingMealType = "Type"
         case StartTime
         case EndTime
     }
     
-    init(mealType: MealType? = nil, startTime: Date? = nil, endTime: Date? = nil) {
+    public init(mealType: MealType? = nil, startTime: Date? = nil, endTime: Date? = nil) {
         self.UpComingMealType = mealType
         self.StartTime = startTime
         self.EndTime = endTime
     }
 }
 
-extension UpcomingMeal {
-    init(from decoder: Decoder) throws {
+public extension UpcomingMeal {
+    public init(from decoder: Decoder) throws {
         guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
             self.init()
             return
@@ -89,20 +89,20 @@ extension UpcomingMeal {
     }
 }
 
-struct NormalHour: Codable {
-    let Name: String?
-    let EffectiveDate: Date?
-    let Days: [NormalHourDay?]?
+public struct NormalHour: Codable {
+    public let Name: String?
+    public let EffectiveDate: Date?
+    public let Days: [NormalHourDay?]?
     
-    init(name: String, effectiveDate: Date?, days: [NormalHourDay]) {
+    public init(name: String, effectiveDate: Date?, days: [NormalHourDay]) {
         self.Name = name
         self.EffectiveDate = effectiveDate
         self.Days = days
     }
 }
 
-extension NormalHour {
-    init(from decoder: Decoder) throws {
+public extension NormalHour {
+    public init(from decoder: Decoder) throws {
         guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
             self.init(name: "", effectiveDate: nil, days: [NormalHourDay]())
             return
@@ -121,20 +121,20 @@ extension NormalHour {
     }
 }
 
-struct NormalHourDay: Codable {
-    let Name: String?
-    let DayOfWeek: Int?
-    let Meals: [NormalHourDayMeal?]?
+public struct NormalHourDay: Codable {
+    public let Name: String?
+    public let DayOfWeek: Int?
+    public let Meals: [NormalHourDayMeal?]?
 }
 
-struct NormalHourDayMeal: Codable {
-    let Name: String?
-    let Order: Int?
-    let Status: String?
-    let Hours: NormalHourDayMealHours?
+public struct NormalHourDayMeal: Codable {
+    public let Name: String?
+    public let Order: Int?
+    public let Status: String?
+    public let Hours: NormalHourDayMealHours?
 }
 
-struct NormalHourDayMealHours: Codable {
-    let StartTime: String?
-    let EndTime: String?
+public struct NormalHourDayMealHours: Codable {
+    public let StartTime: String?
+    public let EndTime: String?
 }

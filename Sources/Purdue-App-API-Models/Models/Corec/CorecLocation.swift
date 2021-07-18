@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CorecLocation: Codable {
-    let LocationId: Int?
-    let LocationName: String?
-    let TotalCapacity: Int?
-    let LastCount: Int?
-    let LastUpdatedDateAndTime: Date?
+public struct CorecLocation: Codable {
+    public let LocationId: Int?
+    public let LocationName: String?
+    public let TotalCapacity: Int?
+    public let LastCount: Int?
+    public let LastUpdatedDateAndTime: Date?
     
-    init(locationId: Int?, locationName: String?, totalCapacity: Int?, lastCount: Int?, lastUpdatedDateAndTime: Date?) {
+    public init(locationId: Int?, locationName: String?, totalCapacity: Int?, lastCount: Int?, lastUpdatedDateAndTime: Date?) {
         self.LocationId = locationId
         self.LocationName = locationName
         self.TotalCapacity = totalCapacity
@@ -23,8 +23,8 @@ struct CorecLocation: Codable {
     }
 }
 
-extension CorecLocation {
-    init(from decoder: Decoder) throws {
+public extension CorecLocation {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let LocationId = try? container.decode(Int.self, forKey: .LocationId)

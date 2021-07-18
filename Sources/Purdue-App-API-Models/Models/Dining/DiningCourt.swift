@@ -10,55 +10,55 @@ import Foundation
 
 public struct DiningCourt: Codable {
 
-    let Location:LocationName
-    let Date:String
-    let Meals:[Meal]
+    public let Location:LocationName
+    public let Date:String
+    public let Meals:[Meal]
     
 }
 
-struct Meal: Codable {
+public struct Meal: Codable {
     
-    let Name:MealType
-    let Stations:[Station]
-    
-}
-
-struct Station: Codable {
-    
-    let Name:String
-    let Items:[Item]
+    public let Name:MealType
+    public let Stations:[Station]
     
 }
 
-struct Item: Codable {
+public struct Station: Codable {
     
-    let ID:String
-    let Name:String
+    public let Name:String
+    public let Items:[Item]
+    
+}
+
+public struct Item: Codable {
+    
+    public let ID:String
+    public let Name:String
     
 }
 
 public struct ItemDetail: Codable {
     
-    let ID:String
-    let Name: String
-    let Nutrition: [NutritionItem]
-    let Ingredients: String
-    let Allergens: [Allergen]
+    public let ID:String
+    public let Name: String
+    public let Nutrition: [NutritionItem]
+    public let Ingredients: String
+    public let Allergens: [Allergen]
     
 }
 
-struct Allergen: Codable {
+public struct Allergen: Codable {
     
-    let Name: String?
-    let Value: Bool?
+    public let Name: String?
+    public let Value: Bool?
 }
 
-struct NutritionItem: Codable {
+public struct NutritionItem: Codable {
     
-    let Name: String?
-    let LabelValue: String?
-    let Value: Float?
-    let DailyValue: String?
-    let Ordinal: Int?
+    public let Name: String?
+    public let LabelValue: String?
+    public let Value: Float?
+    public let DailyValue: String?
+    public let Ordinal: Int?
 
 }

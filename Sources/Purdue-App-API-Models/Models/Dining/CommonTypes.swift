@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MealType: String, Codable {
+public enum MealType: String, Codable {
     case Breakfast
     case Lunch
     case LateLunch = "Late Lunch"
@@ -31,13 +31,13 @@ public enum LocationName: String, Codable {
     case WindsorOnTheGo = "Windsor On-the-GO!"
 }
 
-enum LocationType: String, Codable {
+public enum LocationType: String, Codable {
     case DiningCourt = "Dining Courts"
     case QuickBite = "Quick Bites"
     case OnTheGo = "On-the-GO!"
 }
 
-enum DiningError: Error {
+public enum DiningError: Error {
     case parsingError
     case unknownError
 }
