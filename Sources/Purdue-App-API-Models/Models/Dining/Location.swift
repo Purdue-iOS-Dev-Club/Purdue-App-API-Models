@@ -71,8 +71,7 @@ public extension UpcomingMeal {
             return
         }
         
-        let MealTypeString = try? container.decode(String.self, forKey: .UpComingMealType)
-        let MealType = MealType(rawValue: MealTypeString ?? "")
+        let UpComingMealType = try? container.decode(MealType.self, forKey: .UpComingMealType)
         
         var StartTime: Date? = nil
         if let StartTimeString = try? container.decode(String.self, forKey: .StartTime) {
@@ -84,7 +83,7 @@ public extension UpcomingMeal {
             EndTime = DiningHelpers.ISO1806DateFormatter.date(from: EndTimeString)
         }
         
-        self.init(mealType: MealType, startTime: StartTime, endTime: EndTime)
+        self.init(mealType: UpComingMealType, startTime: StartTime, endTime: EndTime)
         
     }
 }
