@@ -13,7 +13,7 @@ public struct CorecLocation: Codable {
     public let TotalCapacity: Int?
     public let LastCount: Int?
     public let LastUpdatedDateAndTime: Date?
-    public let isClosed: Bool?
+    public let IsClosed: Bool?
     
     public init(locationId: Int?, locationName: String?, totalCapacity: Int?, lastCount: Int?, lastUpdatedDateAndTime: Date?, isClosed: Bool?) {
         self.LocationId = locationId
@@ -21,7 +21,7 @@ public struct CorecLocation: Codable {
         self.TotalCapacity = totalCapacity
         self.LastCount = lastCount
         self.LastUpdatedDateAndTime = lastUpdatedDateAndTime
-        self.isClosed = isClosed
+        self.IsClosed = isClosed
     }
 }
 
@@ -39,8 +39,8 @@ extension CorecLocation {
             LastUpdatedDateAndTime = CorecHelpers.formatLastUpdatedDateAndTime(lastUpdatedDateAndTime: LastUpdatedDateAndTimeString)
         }
         
-        let isClosed = try? container.decode(Bool.self, forKey: .isClosed)
+        let IsClosed = try? container.decode(Bool.self, forKey: .IsClosed)
         
-        self.init(locationId: LocationId, locationName: LocationName, totalCapacity: TotalCapacity, lastCount: LastCount, lastUpdatedDateAndTime: LastUpdatedDateAndTime, isClosed: isClosed)
+        self.init(locationId: LocationId, locationName: LocationName, totalCapacity: TotalCapacity, lastCount: LastCount, lastUpdatedDateAndTime: LastUpdatedDateAndTime, isClosed: IsClosed)
     }
 }
