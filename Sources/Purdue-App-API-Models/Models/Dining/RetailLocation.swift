@@ -59,11 +59,13 @@ public struct RetailLocation: Codable {
         }
         
         let name = try? container.decode(String.self, forKey: .Name)
-        let address = try? container.decode(Address.self, forKey: .LocationAddress)
+        print("Trying to get address")
+        let address = try container.decode(Address.self, forKey: .LocationAddress)
         let phoneNum = try? container.decode(String.self, forKey: .PhoneNumber)
         let latitude = try? container.decode(Float.self, forKey: .Latitude)
         let longitude = try? container.decode(Float.self, forKey: .Longitude)
-        let locationType = try? container.decode(LocationType.self, forKey: .RetailLocationType)
+        print("Trying to get locType")
+        let locationType = try container.decode(LocationType.self, forKey: .RetailLocationType)
         let logoUrl = try? container.decode(URL.self, forKey: .LogoUrl)
         let menuUrl = try? container.decode(URL.self, forKey: .MenuUrl)
         let description = try? container.decode(String.self, forKey: .Description)
