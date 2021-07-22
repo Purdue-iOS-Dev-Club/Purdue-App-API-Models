@@ -70,7 +70,7 @@ public struct RetailLocation: Codable {
         let url = try? container.decode(URL.self, forKey: .Url)
         let bannerUrl = try? container.decode(URL.self, forKey: .BannerUrl)
         
-        self.init(name: name, address: nil, phoneNum: phoneNum, latitude: latitude, longitude: longitude, locationType: nil, logoUrl: logoUrl, menuUrl: menuUrl, description: description, url: url, bannerUrl: bannerUrl)
+        self.init(name: name, address: address, phoneNum: phoneNum, latitude: latitude, longitude: longitude, locationType: locationType, logoUrl: logoUrl, menuUrl: menuUrl, description: description, url: url, bannerUrl: bannerUrl)
         print(self)
     }
 }
