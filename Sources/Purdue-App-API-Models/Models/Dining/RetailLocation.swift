@@ -37,4 +37,40 @@ public struct RetailLocation: Codable {
         case Url
         case BannerUrl
     }
+    
+    public init(name: String?, address: Address?, phoneNum: String?, latitude: Float?, longitude: Float?, locationType: LocationType?, logoUrl: URL?, menuUrl: URL?, description: String?, url: URL?, bannerUrl: URL?) {
+        self.Name = name
+        self.Address = address
+        self.PhoneNumber = phoneNum
+        self.Latitude = latitude
+        self.Longitude = longitude
+        self.LocationType = locationType
+        self.LogoUrl = logoUrl
+        self.MenuUrl = menuUrl
+        self.Description = description
+        self.Url = url
+        self.BannerUrl = bannerUrl
+    }
+    
+    public init(from decoder: Decoder) throws {
+        guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
+            print("Bad container")
+            throw DiningError.unknownError
+        }
+        
+        let name = try? container.decode(String.self, forKey: .Name)
+        // let address = try? container.decode(Address.self, forKey: .Address)
+        let phoneNum = try? container.decode(String.self, forKey: .PhoneNumber)
+        let latitude = try? container.decode(Float.self, forKey: .Latitude)
+        let longitude = try? container.decode(Float.self, forKey: .Longitude)
+        // let locationType = try? container.decode(LocationType, forKey: .LocationType)
+        let logoUrl = try? container.decode(URL.self, forKey: .LogoUrl)
+        let menuUrl = try? container.decode(URL.self, forKey: .MenuUrl)
+        let description = try? container.decode(String.self, forKey: .Description)
+        let url = try? container.decode(URL.self, forKey: .Url)
+        let bannerUrl = try? container.decode(URL.self, forKey: .BannerUrl)
+        
+        self.init(name: name, address: nil, phoneNum: phoneNum, latitude: latitude, longitude: longitude, locationType: nil, logoUrl: logoUrl, menuUrl: menuUrl, description: description, url: url, bannerUrl: bannerUrl)
+        
+    }
 }
