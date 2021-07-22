@@ -10,40 +10,40 @@ import Foundation
 
 public struct DiningCourt: Codable {
 
-    public let Location:LocationName
-    public let Date:String
-    public let Meals:[Meal]
+    public let Location:String?
+    public let Date:String?
+    public let Meals:[Meal?]?
     
 }
 
 public struct Meal: Codable {
     
-    public let Name:MealType
-    public let Stations:[Station]
+    public let Name:MealType?
+    public let Stations:[Station?]?
     
 }
 
 public struct Station: Codable {
     
-    public let Name:String
-    public let Items:[Item]
+    public let Name:String?
+    public let Items:[Item?]?
     
 }
 
 public struct Item: Codable {
     
-    public let ID:String
-    public let Name:String
+    public let ID:String?
+    public let Name:String?
     
 }
 
 public struct ItemDetail: Codable {
     
-    public let ID:String
-    public let Name: String
-    public let Nutrition: [NutritionItem]
-    public let Ingredients: String
-    public let Allergens: [Allergen]
+    public let ID:String?
+    public let Name: String?
+    public let Nutrition: [NutritionItem?]?
+    public let Ingredients: String?
+    public let Allergens: [Allergen?]?
     
 }
 

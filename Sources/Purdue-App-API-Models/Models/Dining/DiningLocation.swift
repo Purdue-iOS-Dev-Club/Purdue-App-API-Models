@@ -8,11 +8,11 @@
 import Foundation
 
 public struct LocationResponse: Codable {
-    public let Location: [Location?]?
+    public let Location: [DiningLocation?]?
 }
 
-public struct Location: Codable {
-    public let Name: LocationName?
+public struct DiningLocation: Codable {
+    public let Name: String?
     public let Address: Address?
     public let PhoneNumber: String?
     public let Latitude: Float?
@@ -37,13 +37,6 @@ public struct Location: Codable {
         case LocationType = "Type"
         case Url
     }
-}
-
-public struct Address: Codable {
-    public let Street: String?
-    public let City: String?
-    public let State: String?
-    public let ZipCode: String?
 }
 
 public struct UpcomingMeal: Codable {
