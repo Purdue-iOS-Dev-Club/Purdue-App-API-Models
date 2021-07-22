@@ -7,6 +7,10 @@
 
 import Foundation
 
+public struct RetailLocationResponse: Codable {
+    public let Location: [RetailLocation?]?
+}
+
 public struct RetailLocation: Codable {
     public let Id: String?
     public let Name: String?

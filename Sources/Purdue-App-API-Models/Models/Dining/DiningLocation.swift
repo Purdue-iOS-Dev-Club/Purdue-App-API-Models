@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocationResponse: Codable {
+public struct DiningLocationResponse: Codable {
     public let Location: [DiningLocation?]?
 }
 
