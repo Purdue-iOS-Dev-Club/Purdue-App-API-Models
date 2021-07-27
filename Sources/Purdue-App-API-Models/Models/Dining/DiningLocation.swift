@@ -93,7 +93,7 @@ public extension UpcomingMeal {
         
         if let end = self.EndTime {
             let EndTimeString = DiningHelpers.ISO1806DateFormatter.string(from: end)
-            try? container.encode(EndTimeString, forKey: .StartTime)
+            try? container.encode(EndTimeString, forKey: .EndTime)
         }
         
     }
