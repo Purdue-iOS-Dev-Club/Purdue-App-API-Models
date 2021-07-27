@@ -79,6 +79,24 @@ public extension UpcomingMeal {
         self.init(mealType: UpComingMealType, startTime: StartTime, endTime: EndTime)
         
     }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encode(self.UpComingMealType, forKey: .UpComingMealType)
+        
+        if let start = self.StartTime {
+            let StartTimeString = DiningHelpers.ISO1806DateFormatter.string(from: start)
+            try? container.encode(StartTimeString, forKey: .StartTime)
+        }
+        
+        
+        if let end = self.EndTime {
+            let EndTimeString = DiningHelpers.ISO1806DateFormatter.string(from: end)
+            try? container.encode(EndTimeString, forKey: .StartTime)
+        }
+        
+    }
 }
 
 public struct NormalHour: Codable {
