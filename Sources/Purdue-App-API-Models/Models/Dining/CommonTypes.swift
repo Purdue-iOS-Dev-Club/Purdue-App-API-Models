@@ -9,6 +9,7 @@ import Foundation
 
 public enum MealType: String, Codable {
     case Breakfast
+    case BreakfastLunch = "Breakfast/Lunch"
     case Lunch
     case LateLunch = "Late Lunch"
     case Snack
