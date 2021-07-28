@@ -50,7 +50,7 @@ public struct UpcomingMeal: Codable {
         case EndTime
     }
     
-    public init(mealType: MealType? = nil, startTime: Date? = nil, endTime: Date? = nil) {
+    public init(mealType: MealType? = nil, startTime: String? = nil, endTime: String? = nil) {
         self.UpComingMealType = mealType
         self.StartTime = startTime
         self.EndTime = endTime
@@ -62,7 +62,7 @@ public struct NormalHour: Codable {
     public let EffectiveDate: String?
     public let Days: [NormalHourDay?]?
     
-    public init(name: String, effectiveDate: Date?, days: [NormalHourDay]) {
+    public init(name: String, effectiveDate: String?, days: [NormalHourDay]) {
         self.Name = name
         self.EffectiveDate = effectiveDate
         self.Days = days
