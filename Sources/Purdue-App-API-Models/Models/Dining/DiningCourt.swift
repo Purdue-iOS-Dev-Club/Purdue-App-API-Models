@@ -20,7 +20,14 @@ public struct Meal: Codable {
     
     public let Name:MealType?
     public let Stations:[Station?]?
+    public let Hours: DiningCourtHours
     
+}
+
+public struct DiningCourtHours: Codable {
+    
+    public let StartTime: String
+    public let EndTime: String
 }
 
 public struct Station: Codable {

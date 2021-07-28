@@ -41,8 +41,8 @@ public struct DiningLocation: Codable {
 
 public struct UpcomingMeal: Codable {
     public let UpComingMealType: MealType?
-    public let StartTime: Date?
-    public let EndTime: Date?
+    public let StartTime: String?
+    public let EndTime: String?
     
     public enum CodingKeys: String, CodingKey {
         case UpComingMealType = "Type"
@@ -57,77 +57,15 @@ public struct UpcomingMeal: Codable {
     }
 }
 
-public extension UpcomingMeal {
-    public init(from decoder: Decoder) throws {
-        guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
-            self.init()
-            return
-        }
-        
-        let UpComingMealType = try? container.decode(MealType.self, forKey: .UpComingMealType)
-        
-        var StartTime: Date? = nil
-        if let StartTimeString = try? container.decode(String.self, forKey: .StartTime) {
-            StartTime = DiningHelpers.ISO1806DateFormatter.date(from: StartTimeString)
-        }
-        
-        var EndTime: Date? = nil
-        if let EndTimeString = try? container.decode(String.self, forKey: .EndTime) {
-            EndTime = DiningHelpers.ISO1806DateFormatter.date(from: EndTimeString)
-        }
-        
-        self.init(mealType: UpComingMealType, startTime: StartTime, endTime: EndTime)
-        
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try? container.encode(self.UpComingMealType, forKey: .UpComingMealType)
-        
-        if let start = self.StartTime {
-            let StartTimeString = DiningHelpers.ISO1806DateFormatter.string(from: start)
-            try? container.encode(StartTimeString, forKey: .StartTime)
-        }
-        
-        
-        if let end = self.EndTime {
-            let EndTimeString = DiningHelpers.ISO1806DateFormatter.string(from: end)
-            try? container.encode(EndTimeString, forKey: .EndTime)
-        }
-        
-    }
-}
-
 public struct NormalHour: Codable {
     public let Name: String?
-    public let EffectiveDate: Date?
+    public let EffectiveDate: String?
     public let Days: [NormalHourDay?]?
     
     public init(name: String, effectiveDate: Date?, days: [NormalHourDay]) {
         self.Name = name
         self.EffectiveDate = effectiveDate
         self.Days = days
-    }
-}
-
-public extension NormalHour {
-    public init(from decoder: Decoder) throws {
-        guard let container = try? decoder.container(keyedBy: CodingKeys.self) else {
-            self.init(name: "", effectiveDate: nil, days: [NormalHourDay]())
-            return
-        }
-        
-        let Name = try? container.decode(String.self, forKey: .Name)
-        
-        var EffectiveDate: Date? = nil
-        if let EffectiveDateString = try? container.decode(String.self, forKey: .EffectiveDate) {
-            EffectiveDate = DiningHelpers.formatEffectiveDate(effectiveDate: EffectiveDateString)
-        }
-        
-        let Days = try? container.decode([NormalHourDay].self, forKey: .Days)
-        
-        self.init(name: Name ?? "", effectiveDate: EffectiveDate, days: Days ?? [NormalHourDay]())
     }
 }
 
