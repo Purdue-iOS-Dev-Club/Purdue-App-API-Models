@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Result: Codable {
+struct DirectoryResult: Codable {
     let name: String
     let alias: String
     let campus: String
