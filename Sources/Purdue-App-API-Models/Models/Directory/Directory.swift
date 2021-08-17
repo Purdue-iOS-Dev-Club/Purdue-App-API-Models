@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DirectoryResult: Codable {
-    let name: String
-    let alias: String
-    let campus: String
-    let school: String
-    let qualifiedName: String
-    let email: String
+public struct DirectoryResult: Codable {
+    public let name: String
+    public let alias: String
+    public let campus: String
+    public let school: String
+    public let qualifiedName: String
+    public let email: String
 }
