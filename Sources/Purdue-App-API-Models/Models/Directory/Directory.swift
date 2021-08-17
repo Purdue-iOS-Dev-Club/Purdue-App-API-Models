@@ -8,12 +8,12 @@
 import Foundation
 
 public struct DirectoryResult: Codable {
-    public let name: String
-    public let alias: String
-    public let campus: String
-    public let school: String
-    public let qualifiedName: String
-    public let email: String
+    public var name: String
+    public var alias: String
+    public var campus: String
+    public var school: String
+    public var qualifiedName: String
+    public var email: String
     
     public init(name: String = "", alias: String = "", campus: String = "", school: String = "", qualifiedName: String = "", email: String = "") {
         self.name = name
