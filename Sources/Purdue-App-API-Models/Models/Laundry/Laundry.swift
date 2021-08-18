@@ -89,7 +89,7 @@ public enum LaundryStatus: String, Codable {
     case other
     
     #if !os(macOS)
-    var textColor: UIColor {
+    public var textColor: UIColor {
         switch self {
         case .available:
             return UIColor(red: 0.086, green: 0.627, blue: 0.522, alpha: 1)
