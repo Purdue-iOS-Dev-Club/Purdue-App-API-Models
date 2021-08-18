@@ -7,6 +7,11 @@
 
 import Foundation
 
+#if !os(macOS)
+import UIKit
+#endif
+
+
 public struct LaundryResponse: Codable {
     public var status: String
     public var rooms: [LaundryRoom]
@@ -82,4 +87,25 @@ public enum LaundryStatus: String, Codable {
     case notOnline = "Not online"
     case outOfOrder = "Out of order"
     case other
+    
+    #if !os(macOS)
+    var textColor: UIColor {
+        switch self {
+        case .available:
+            return UIColor(red: 0.086, green: 0.627, blue: 0.522, alpha: 1)
+        case .inUse:
+            return UIColor.red
+        case .endOfCycle:
+            return UIColor(red: 0.153, green: 0.682, blue: 0.376, alpha: 1)
+        case .almost:
+            return UIColor(red: 0.945, green: 0.769, blue: 0.059, alpha: 1)
+        case .ready, .paymentInProgress:
+            return UIColor(red: 0.902, green: 0.494, blue: 0.133, alpha: 1)
+        case .notOnline, .outOfOrder:
+            return UIColor(red: 0.204, green: 0.596, blue: 0.859, alpha: 1)
+        case .other:
+            return UIColor.black
+        }
+    }
+    #endif
 }
