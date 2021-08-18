@@ -10,6 +10,11 @@ import Foundation
 public struct LaundryResponse: Codable {
     public var status: String
     public var rooms: [LaundryRoom]
+    
+    public init(status: String = "", rooms: [LaundryRoom] = []) {
+        self.status = status
+        self.rooms = rooms
+    }
 }
 
 public struct LaundryRoom: Codable {
