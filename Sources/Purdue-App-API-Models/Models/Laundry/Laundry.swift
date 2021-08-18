@@ -25,6 +25,11 @@ public struct LaundryRoom: Codable {
         case name = "laundryName"
         case machines
     }
+    
+    public init(name: String = "", machines: [LaundryMachine] = "") {
+        self.name = name
+        self.machines = machines
+    }
 }
 
 public struct LaundryMachine: Codable {
@@ -38,6 +43,13 @@ public struct LaundryMachine: Codable {
         case type
         case status
         case time
+    }
+    
+    public init(name: String = "", type: LaundryType = LaundryType.washer, status: LaundryStatus = LaundryStatus.other, time: String? = nil) {
+        self.name = name
+        self.type = type
+        self.status = status
+        self.time = time
     }
 }
 
