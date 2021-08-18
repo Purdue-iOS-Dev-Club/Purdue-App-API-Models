@@ -7,34 +7,37 @@
 
 import Foundation
 
-struct LaundryRoom: Codable {
-    let name: String
-    let id: String
+public struct LaundryResponse: Codable {
+    public var status: String
+    public var rooms: [LaundryRoom]
+}
 
-    enum CodingKeys: String, CodingKey {
+public struct LaundryRoom: Codable {
+    public var name: String
+    public var machines: [LaundryMachine]
+    
+    public enum CodingKeys: String, CodingKey {
         case name = "laundryName"
-        case id = "laundryId"
+        case machines
     }
 }
 
-struct LaundryMachine: Encodable {
-    let name: String
-    let type: LaundryType
-    let status: LaundryStatus
-    let time: String?
-    let room: LaundryRoom
+public struct LaundryMachine: Codable {
+    public var name: String
+    public var type: LaundryType
+    public var status: LaundryStatus
+    public var time: String?
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case name
         case type
         case status
         case time
-        case room
     }
 }
 
-extension LaundryMachine {
-    init(from decoder: Decoder) throws {
+public extension LaundryMachine {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         let name = try container.decode(String.self, forKey: .name)
@@ -42,18 +45,17 @@ extension LaundryMachine {
         let status = LaundryStatus(rawValue: statusString)
         let type = try container.decode(LaundryType.self, forKey: .type)
         let time = try container.decodeIfPresent(String.self, forKey: .time)
-        let room = try container.decode(LaundryRoom.self, forKey: .room)
 
-        self.init(name: name, type: type, status: status ?? .other, time: time, room: room)
+        self.init(name: name, type: type, status: status ?? .other, time: time)
     }
 }
 
-enum LaundryType: String, Codable {
+public enum LaundryType: String, Codable {
     case washer = "Washer"
     case dryer = "Dryer"
 }
 
-enum LaundryStatus: String, Codable {
+public enum LaundryStatus: String, Codable {
     case available = "Available"
     case inUse = "In use"
     case endOfCycle = "End of cycle"
