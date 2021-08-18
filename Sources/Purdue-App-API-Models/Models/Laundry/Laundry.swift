@@ -26,7 +26,7 @@ public struct LaundryRoom: Codable {
         case machines
     }
     
-    public init(name: String = "", machines: [LaundryMachine] = "") {
+    public init(name: String = "", machines: [LaundryMachine] = []) {
         self.name = name
         self.machines = machines
     }
