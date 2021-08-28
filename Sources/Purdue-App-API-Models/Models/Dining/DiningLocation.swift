@@ -20,7 +20,7 @@ public struct DiningLocation: Codable {
     public let ImageUrls: [URL?]?
     public let LogoUrl: URL?
     public let UpcomingMeals: [UpcomingMeal?]?
-    public let NormalHours: [NormalHour?]?
+    // public let NormalHours: [NormalHour?]?
     public let LocationType: LocationType?
     public let Url: URL?
     
@@ -33,7 +33,7 @@ public struct DiningLocation: Codable {
         case ImageUrls
         case LogoUrl
         case UpcomingMeals
-        case NormalHours
+        // case NormalHours
         case LocationType = "Type"
         case Url
     }
