@@ -7,7 +7,7 @@
 
 import Foundation
 
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -88,7 +88,7 @@ public enum LaundryStatus: String, Codable {
     case outOfOrder = "Out of order"
     case other
     
-    #if !os(macOS)
+    #if canImport(UIKit)
     public var textColor: UIColor {
         switch self {
         case .available:
