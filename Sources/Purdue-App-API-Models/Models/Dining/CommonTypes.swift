@@ -14,6 +14,7 @@ public enum MealType: String, Codable {
     case LateLunch = "Late Lunch"
     case Snack
     case Dinner
+    case Unknown
 }
 
 public enum LocationName: String, Codable {
